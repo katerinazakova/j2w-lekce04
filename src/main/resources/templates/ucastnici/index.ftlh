@@ -8,7 +8,7 @@
 
 <div class="container">
     [#include '/_common/header.ftlh']
-
+    [#list ucastnici]
     <table class="table table-striped">
         <thead>
         <tr>
@@ -21,24 +21,19 @@
         </tr>
         </thead>
         <tbody>
+        [#items as ucastnici]
         <tr>
-            <td>1</td>
+            <td>${ucastnici?counter}</td>
             <td><i class="las la-mars" style="color: blue;"></i></td>
-            <td>Medvídek</td>
-            <td>Pú</td>
-            <td>Stokorcový les</td>
-            <td><a href="/ucastnici/detail/1" class="btn btn-primary">Detail</a></td>
+            <td>${ucastnici.jmeno}</td>
+            <td>${ucastnici.prijmeni}</td>
+            <td>${ucastnici.bydliste}</td>
+           <td><a href="/ucastnici/detail/${ucastnici?index}" class="btn btn-primary">Detail</a></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td><i class="las la-venus" style="color: red;"></i></td>
-            <td>Čarodějnice</td>
-            <td>Malá</td>
-            <td><em>neuvedeno</em></td>
-            <td><a href="/ucastnici/detail/2" class="btn btn-primary">Detail</a></td>
-        </tr>
+        [/#items]
         </tbody>
     </table>
+    [/#list]
 </div>
 </body>
 </html>
